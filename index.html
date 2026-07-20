@@ -7,7 +7,6 @@
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            /* 1. 全白科技感底色与金银渐层 */
             --bg-color: #ffffff;
             --sub-bg: #f8f9fa;
             --card-bg: #ffffff;
@@ -26,7 +25,6 @@
 
         body {
             background-color: var(--bg-color);
-            /* 后景科技感柔和白光晕效果 */
             background-image: 
                 radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(138, 149, 165, 0.05) 0%, transparent 40%);
@@ -47,7 +45,6 @@
             margin-bottom: 20px;
         }
 
-        /* 金银微光渐层企业名 */
         .logo-text {
             font-family: 'Orbitron', sans-serif;
             font-size: 3rem;
@@ -69,7 +66,6 @@
             font-weight: 600;
         }
 
-        /* 2. 公司介绍圆圈图形整齐排列 */
         .intro-circle-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -135,7 +131,6 @@
             border-radius: 2px;
         }
 
-        /* 3 & 4. 招聘卡片与More折叠逻辑 */
         .job-container {
             display: flex;
             flex-direction: column;
@@ -189,7 +184,6 @@
             border: 1px solid #cbd5e0;
         }
 
-        /* More 交互按钮 */
         .btn-more {
             background: #ffffff;
             border: 1px solid #d4af37;
@@ -213,15 +207,14 @@
             box-shadow: 0 4px 10px rgba(212, 175, 55, 0.2);
         }
 
-        /* 隐藏的下一页详细说明区块 */
         .job-details-wrapper {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); /* 平滑手风琴展开动效 */
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
         }
 
         .job-details-wrapper.open {
-            max-height: 2000px; /* 给予足够高度展开 */
+            max-height: 2000px;
             transition: max-height 0.4s cubic-bezier(1, 0, 1, 0);
             border-top: 1px solid var(--border-color);
             margin-top: 20px;
@@ -266,7 +259,6 @@
             border-left: 3px solid #d4af37;
         }
 
-        /* 停招样式细化 */
         .job-card.closed {
             background: #f7fafc;
             border-color: #e2e8f0;
@@ -277,7 +269,6 @@
             color: #a0aec0;
         }
 
-        /* 5. 新增公司联系方式版块 */
         .contact-section {
             background: #f8f9fa;
             border: 1px solid var(--border-color);
@@ -329,7 +320,6 @@
             color: #2d3748;
         }
 
-        /* 响应式调整 */
         @media (max-width: 768px) {
             .logo-text { font-size: 2.2rem; }
             .intro-circle-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
@@ -348,4 +338,12 @@
 
 <div class="container">
 
-    <!-- 顶头公司名称 -->
+    <header>
+        <div class="logo-text">N&P CALL CENTERS</div>
+        <div class="subtitle">Next-Gen Gaming Support Hub</div>
+    </header>
+
+    <div class="intro-circle-container">
+        <div class="circle-card">
+            <h3>🎮 业务定位</h3>
+            <p>专注于全球线上游戏平台的一站式高端BPO客服系统。</p>
