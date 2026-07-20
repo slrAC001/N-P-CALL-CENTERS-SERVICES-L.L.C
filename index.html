@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N&P CALL CENTERS SERVICES L.L.C</title>
+    <!-- 引入科技感 Google 字体 -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #141b2d;
+            --gold-gradient: linear-gradient(135deg, #f1c40f, #d4af37, #9a7b1c);
+            --silver-gradient: linear-gradient(135deg, #ffffff, #bdc3c7, #7f8c8d);
+            --gold-glow: 0 0 15px rgba(212, 175, 55, 0.3);
+            --silver-glow: 0 0 15px rgba(189, 195, 199, 0.2);
+            --text-main: #f5f6fa;
+            --text-muted: #a4b0be;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 头部科技感 Title */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #101726 0%, var(--bg-color) 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #bdc3c7;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        /* 核心特点网格 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(189, 195, 199, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--gold-gradient);
+        }
+
+        .feature-card.silver::before {
+            background: var(--silver-gradient);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: var(--gold-glow);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .feature-card.silver h3 {
+            background: var(--silver-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* 招聘区块 */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 50px 0 30px 0;
+            position: relative;
+            background: var(--silver-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--gold-gradient);
+            margin: 10px auto 0 auto;
+        }
+
+        /* 职位卡片容器 */
+        .job-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 35px;
+            position: relative;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .status-active {
+            background: rgba(46, 204, 113, 0.15);
+            color: #2ecc71;
+            border: 1px solid #2ecc71;
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+        }
+
+        .status-closed {
+            background: rgba(149, 165, 166, 0.15);
+            color: #95a5a6;
+            border: 1px solid #95a5a6;
+            opacity: 0.6;
+        }
+
+        .job-card.closed {
+            opacity: 0.5;
+            filter: grayscale(80%);
+        }
+
+        /* 职位详情排版 */
+        .job-details h4 {
+            color: #d4af37;
+            font-size: 1rem;
+            margin: 15px 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .job-details ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .job-details ul li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .job-details ul li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: #bdc3c7;
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #bdc3c7;
+        }
+
+        .meta-info span strong {
+            color: #f1c40f;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .logo-text { font-size: 2rem; }
+            .job-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .meta-info { flex-direction: column; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 头部信息 -->
+    <header>
+        <div class="logo-text">N&P CALL CENTERS</div>
+        <div class="subtitle">Next-Gen Gaming Support Hub</div>
+    </header>
+
+    <!-- 公司属性与福利介绍 -->
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3>🎮 全球线上游戏客制化服务</h3>
+            <p>立足于迪拜核心商业圈，专注于为全球顶尖线上游戏平台提供高标准、全方位的BPO客服解决方案。</p>
+        </div>
+        <div class="feature-card silver">
+            <h3>⚡ 24/7/365 全天候在线</h3>
+            <p>具备严密的科技化排班与灾备系统，打破时区限制，全天候不间断提供专业级客服响应。</p>
+        </div>
+        <div class="feature-card">
+            <h3>📍 坐落于迪拜黄金海岸 JBR</h3>
+            <p>公司设立于著名的 Jumeirah Beach Residence (JBR)，紧邻迪拜码头，具备国际化的一流办公环境。</p>
+        </div>
+        <div class="feature-card silver">
+            <h3>💎 完备的跨国人才福利</h3>
+            <p>我们提供全套合法合法工作签证、高端医疗保险、定期回乡机票、以及具有市场竞争力的优渥综合福利体系。</p>
+        </div>
+    </div>
+
+    <!-- 招聘版块 -->
+    <div class="section-title">CAREERS / 招募精英</div>
+
+    <div class="job-container">
+
+        <!-- 职位：会计助理 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div class="job-title">⚖️ 会计助理 (Accounting Assistant)</div>
+                <span class="status-badge status-active">🔥 招募中 Hires Active</span>
+            </div>
+            <div class="job-details">
+                <h4>📌 条件要求</h4>
+                <ul>
+                    <li><b>身份限制：</b>华人（本岗位因特殊业务配置，不收中国籍）</li>
+                    <li><b>基本条件：</b>32 岁以下（女性优先）</li>
+                    <li><b>工作经验：</b>需具备连续 2 年以上稳定工作经验（可接受无会计经验者，提供带薪培训）</li>
+                    <li><b>加分项：</b>有会计、出纳或公司内部账务相关经验者优先录用</li>
+                    <li><b>技能要求：</b>熟练掌握 Office 办公软件，尤其是 Excel 操作</li>
+                    <li><b>语言能力：</b>中文精通，具备日常英文沟通能力</li>
+                    <li><b>核心特质：</b>诚实守信、严谨细心、廉洁自律、客观公正、坚守准则</li>
+                </ul>
+
+                <h4>📋 职务说明</h4>
+                <ul>
+                    <li>定期编制公司帐务、精准盘点现金流</li>
+                    <li>处理应收/付账款作业，妥善储存与归档公司财务凭证</li>
+                    <li>精准计算各项成本、费用及折旧摊销</li>
+                    <li>审查公司帐务、资产、折让等各项数据明细</li>
+                    <li>审查员工工资及各类公司内部扣缴申报</li>
+                    <li>负责考勤数据核算与分类统计</li>
+                    <li>如期完成上级主管交办的其他临时性财务交办事项</li>
+                </ul>
+
+                <div class="meta-info">
+                    <span>⏱ <strong>工时制度：</strong>08:00 - 18:00 (每日10H)</span>
+                    <span>🌴 <strong>休假安排：</strong>月休 6 天</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 职位：助理 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div class="job-title">💼 行政高级助理 (Executive Assistant)</div>
+                <span class="status-badge status-active">🔥 招募中 Hires Active</span>
+            </div>
+            <div class="job-details">
+                <h4>📌 条件要求</h4>
+                <ul>
